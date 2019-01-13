@@ -1,5 +1,7 @@
 package com.main;
 
+import java.awt.Point;
+
 /**
  * Stores an X and Y coordinate of type Double
  * Useful for objects with fluid motion
@@ -30,6 +32,7 @@ public class Vector {
      * @param v The vector to copy
      */
     public Vector(Vector v){ this.x = v.x; this.y = v.y; }
+    public Vector(Point p){ this.x = p.x; this.y = p.y; }
 
     public Vector add(Vector v){ return new Vector(x + v.x, y + v.y); }
     public Vector subtract(Vector v){ return new Vector(x - v.x, y - v.y); }

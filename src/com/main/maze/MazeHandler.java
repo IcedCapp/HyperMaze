@@ -1,5 +1,5 @@
 
-package com.main;
+package com.main.maze;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -11,6 +11,10 @@ public class MazeHandler {
     
     public MazeHandler(){
         containers = new ArrayList<>();
+    }
+    
+    public void clear(){
+        containers.clear();
     }
     
     public void addContainer(MazeContainer mc){

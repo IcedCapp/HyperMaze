@@ -1,11 +1,15 @@
 
-package com.main;
+package com.main.player;
 
+import com.main.Key;
+import com.main.Keyboard;
+import com.main.Vector;
+import com.main.maze.MazeCollider;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Player {
+public class Player implements Trackable{
     
     public static final double SPEED = 2.5;
     
@@ -20,6 +24,8 @@ public class Player {
         this.keyboard = keyboard;
         this.collider = collider;
     }
+    
+    public Vector getPos(){ return pos; }
     
     public void update(){
         Vector nPos = new Vector(pos);

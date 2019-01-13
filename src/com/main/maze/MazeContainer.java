@@ -1,6 +1,7 @@
 
-package com.main;
+package com.main.maze;
 
+import com.main.Vector;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -10,7 +11,7 @@ import java.awt.geom.Rectangle2D;
 
 public class MazeContainer {
     
-    private static final double SCALE = 40;
+    public static final double SCALE = 80;
     
     private Vector pos;
     private Maze maze;
@@ -18,6 +19,13 @@ public class MazeContainer {
     public MazeContainer(Vector pos, Maze maze){
         this.pos = pos;
         this.maze = maze;
+    }
+    
+    public Maze getMaze(){ return maze; }
+    public Vector getPos(){ return pos; }
+    
+    public boolean containsPoint(Vector pos){
+        return pos.greaterThan(this.pos) && pos.lessThan(this.pos.add(new Vector(maze.getSize()).multiply(SCALE)));
     }
     
     public boolean isColliding(Vector pos, double radius){
@@ -30,10 +38,10 @@ public class MazeContainer {
         AffineTransform save = g.getTransform();
         g.translate(pos.x, pos.y);
         g.scale(SCALE, SCALE);
+        g.setColor(new Color(230, 230, 230));
+        g.setStroke(new BasicStroke(1));
+        g.fill(new Rectangle2D.Double(0, 0, maze.getSize().x, maze.getSize().y));
         maze.render(g);
-        g.setColor(Color.red);
-        g.setStroke(new BasicStroke(0.04f));
-        g.draw(new Rectangle2D.Double(-0.1, -0.1, maze.getSize().x+0.2, maze.getSize().y+0.2));
         g.setTransform(save);
     }
 }

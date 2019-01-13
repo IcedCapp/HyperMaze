@@ -1,5 +1,5 @@
 
-package com.main;
+package com.main.maze;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

@@ -1,6 +1,7 @@
 
-package com.main;
+package com.main.maze;
 
+import com.main.Vector;
 import java.util.Iterator;
 
 public class MazeCollider {
