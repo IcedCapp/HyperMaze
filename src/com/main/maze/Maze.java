@@ -5,17 +5,24 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 
 public class Maze {
     
+    private String name;
     private Point size;
     private boolean[][] hwalls, vwalls;
+    private BufferedImage img;
     
-    public Maze(Point size, boolean[][] hwalls, boolean[][] vwalls){
+    public Maze(Point size, boolean[][] hwalls, boolean[][] vwalls, BufferedImage img, String name){
         this.size = size;
         this.hwalls = hwalls;
         this.vwalls = vwalls;
+        this.img = img;
+        this.name = name;
     }
+    
+    public String getName(){ return name; }
     
     public Point getSize(){ return size; }
     
@@ -44,6 +51,7 @@ public class Maze {
     }
     
     public void render(Graphics2D g){
+        g.drawImage(img, 0, 0, size.x, size.y, null);
         g.setColor(Color.BLACK);
         g.setStroke(new BasicStroke(0.1f));
         for(int y = 0; y < size.y+1; y++){

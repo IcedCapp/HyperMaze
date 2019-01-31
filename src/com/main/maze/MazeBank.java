@@ -8,15 +8,19 @@ import java.util.Iterator;
 public class MazeBank {
 
     //private ArrayList<Maze> mazes;
+    private Maze startMaze;
     private HashMap<Maze, ArrayList<MazeNeighbour>> neighbourData;
     
-    public MazeBank(ArrayList<Maze> mazes){
-        //this.mazes = mazes;
+    public MazeBank(){
         neighbourData = new HashMap<>();
-        for(Maze m : mazes){
-            neighbourData.put(m, new ArrayList<>());
-        }
     }
+    
+    public void addMaze(Maze m){
+        neighbourData.put(m, new ArrayList<>());
+        if(startMaze==null){ startMaze = m; }
+    }
+    
+    public Maze getStartMaze(){ return startMaze; }
     
     public void addNeighbourRelation(Maze m1, Maze m2, Point offset){
         neighbourData.get(m1).add(new MazeNeighbour(m2, offset));

@@ -1,7 +1,7 @@
 
 package com.main.maze;
 
-import com.main.Vector;
+import com.main.struct.Vector;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -38,9 +38,9 @@ public class MazeContainer {
         AffineTransform save = g.getTransform();
         g.translate(pos.x, pos.y);
         g.scale(SCALE, SCALE);
-        g.setColor(new Color(230, 230, 230));
+        /*g.setColor(new Color(230, 230, 230));
         g.setStroke(new BasicStroke(1));
-        g.fill(new Rectangle2D.Double(0, 0, maze.getSize().x, maze.getSize().y));
+        g.fill(new Rectangle2D.Double(0, 0, maze.getSize().x, maze.getSize().y));*/
         maze.render(g);
         g.setTransform(save);
     }

@@ -1,4 +1,4 @@
-package com.main;
+package com.main.struct;
 
 import java.awt.Point;
 

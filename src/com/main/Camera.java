@@ -1,5 +1,6 @@
 package com.main;
 
+import com.main.struct.Vector;
 import com.main.player.Trackable;
 import java.awt.Graphics2D;
 
@@ -14,9 +15,10 @@ public class Camera {
     }
     
     public void worldToScreen(Graphics2D g){
-        g.translate(-center.x, -center.y);
-        //g.scale(2, 2);
         g.translate(Main.WIDTH/2, Main.HEIGHT/2);
+        double scale = 1.7;
+        g.scale(scale, scale);
+        g.translate(-center.x, -center.y);
     }
     
     public void update(){
